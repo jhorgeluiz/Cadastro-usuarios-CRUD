@@ -34,10 +34,8 @@
     height: auto;
     background: transparent;
     box-shadow: 0 8px 16px #77aa191a;
-
     padding: 20px;
     overflow: hidden;
-
   }
 
   h1 {
@@ -56,7 +54,6 @@
     font-size: 24px;
     font-weight: 700;
     color: white;
-    
   }
 
   aside {
@@ -72,9 +69,7 @@
     color: white;
   }
 
-
   .divTable {
-    
     overflow-x: auto;
     margin-top: 20px;
   }
@@ -117,27 +112,12 @@
     width: 70px;
   }
 
-
-
   tbody td.acao button {
     background: none;
     color: #555;
     font-size: 18px;
-    /* padding: 5px 8px; */
     cursor: pointer;
   }
-
-  /* tbody td.acao button:hover {
-    color: #4CAF50;
-  }
-
-  tbody td.acao button.delete {
-    color: #e74c3c;
-  }
-
-  tbody td.acao button.delete:hover {
-    color: #c0392b;
-  } */
 
   .modal-container.active {
     display: block;      /* <---- */
@@ -179,7 +159,7 @@
   .modal input:focus {
     border-color: #4CAF50;
     outline: none;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 0 5px #4caf504d;
   }
 
   .modal button {
@@ -195,10 +175,6 @@
     background-color: #45a049;
   }
 
-
-
-
-  /* Estilo principal para o container de login */
   .login-container {
     display: flex;
     flex-direction: column;
@@ -206,14 +182,12 @@
     justify-content: center;
     width: 100vw;
     height: 90vh;
-    /* background-color: #2575fc; */
     background-image: linear-gradient( #49a09d, #5f2c82);
     background-attachment: fixed;
     color: #fff;
     padding: 20px;
   }
 
-  /* Título do login */
   .login-container h1 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
@@ -221,7 +195,6 @@
     color: white;
   }
 
-  /* Estilo para o formulário */
   .login-container form {
     background-color: transparent;
     padding: 20px;
@@ -234,7 +207,6 @@
     flex-direction: column;
   }
 
-  /* Estilo para os labels */
   .login-container label {
     display: flex;
     flex-direction: column;
@@ -245,7 +217,6 @@
     color: #f5f5f5;
   }
 
-  /* Estilo para os inputs */
   .login-container input {
     margin-top: 0.5rem;
     padding: 15px;
@@ -262,7 +233,6 @@
     outline: 2px solid #6a11cb;
   }
 
-  /* Estilo para o botão */
   .login-container button {
     background-color: #49a09d;
     color: #fff;
@@ -278,10 +248,6 @@
     background-color: #6a11cb;
   }
 
-
-
-
-  /* estilo botao sair */
   #sair {
     margin-left: 10px;
     background-color: #ff6b6b;
@@ -299,20 +265,8 @@
 
 }
 
-
-
-
-
-
-
+/* telas grandes */
 @media screen and (min-width: 992px) {
-  #root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-  }
-
   * {
     margin: 0;
     padding: 0;
@@ -326,7 +280,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    background-color: #6c6c6e;
+    background-image: linear-gradient( #49a09d, #5f2c82);
   }
 
   button {
@@ -345,16 +299,15 @@
     width: 100%;
     max-width: 900px;
     height: auto;
-    background: #b0afb1;
+    background: transparent;
     box-shadow: 0 8px 16px #77aa191a;
-    border-radius: 10px;
     padding: 20px;
     overflow: hidden;
-
   }
 
   h1 {
     color: white;
+    text-align: center;
   }
 
   .container > .modal .m-nome {
@@ -365,24 +318,25 @@
   }
 
   header {
-    text-align: center;
     font-size: 24px;
     font-weight: 700;
     color: white;
   }
 
+  aside {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 10px;
+  }
+
   #new {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color:  #5f2c82;
     color: white;
   }
 
-  #new:hover {
-    background-color: #45a049;
-  }
-
   .divTable {
-    
     overflow-x: auto;
     margin-top: 20px;
   }
@@ -401,7 +355,7 @@
   thead th {
     font-size: 16px;
     text-align: left;
-    padding: 12px 8px;
+    padding: 10px;
     color: #555555;
     border-bottom: 2px solid #eeeeee;
   }
@@ -415,36 +369,21 @@
   }
 
   tbody td {
-    padding: 12px 8px;
+    padding: 10px;
     text-align: left;
     color: #333333;
   }
 
   .acao {
     text-align: center;
-    width: 100px;
+    width: 70px;
   }
-
-
 
   tbody td.acao button {
     background: none;
     color: #555;
     font-size: 18px;
-    padding: 5px 8px;
     cursor: pointer;
-  }
-
-  tbody td.acao button:hover {
-    color: #4CAF50;
-  }
-
-  tbody td.acao button.delete {
-    color: #e74c3c;
-  }
-
-  tbody td.acao button.delete:hover {
-    color: #c0392b;
   }
 
   .modal-container.active {
@@ -453,12 +392,13 @@
 
   .modal {
     width: 90%;
+    height: 400px;
     max-width: 500px;
-    background: #6d17a7;
+    background-color:  #5f2c82;
     border-radius: 10px;
     padding: 20px;
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
@@ -467,15 +407,17 @@
   .modal label {
     display: flex;     /* <---- */
     margin-bottom: 8px;
-    font-size: 14px;
+    padding: 5px;
+    font-size: 20px;
     font-weight: 600;
-    color: #333333;
+    text-align: center;
+    color: white;
   }
 
   .modal input {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: 15px;
+    margin-bottom: 30px;
     border: 1px solid #dddddd;
     border-radius: 4px;
     font-size: 14px;
@@ -484,13 +426,13 @@
   .modal input:focus {
     border-color: #4CAF50;
     outline: none;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 0 5px #4caf504d;
   }
 
   .modal button {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
+    padding: 15px;
+    font-size: 20px;
     background-color: #4CAF50;
     color: white;
     border-radius: 4px;
@@ -500,138 +442,93 @@
     background-color: #45a049;
   }
 
-  /* Responsividade */
-  @media (max-width: 768px) {
-    .header span {
-      font-size: 20px;
-    }
-
-    thead th {
-      font-size: 14px;
-    }
-
-    tbody td {
-      font-size: 14px;
-    }
-  }
-
-
-
-
-  /* Estilo principal para o container de login */
-.login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-image: linear-gradient( #49a09d, #5f2c82);
-  font-family: Arial, sans-serif;
-  color: #fff;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-/* Título do login */
-.login-container h1 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  color: #ffffff;
-}
-
-/* Estilo para o formulário */
-.login-container form {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 400px;
-  box-sizing: border-box;
-}
-
-/* Estilo para os labels */
-.login-container label {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
-  font-weight: bold;
-  font-size: 1rem;
-  color: #f5f5f5;
-}
-
-/* Estilo para os inputs */
-.login-container input {
-  margin-top: 0.5rem;
-  padding: 10px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.9);
-  color: #333;
-  outline: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.login-container input:focus {
-  outline: 2px solid #6a11cb;
-}
-
-/* Estilo para o botão */
-.login-container button {
-  background: #2575fc;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.login-container button:hover {
-  background: #6a11cb;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
   .login-container {
-    padding: 10px;
-  }
-
-  .login-container form {
-    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 90vh;
+    background-image: linear-gradient( #49a09d, #5f2c82);
+    background-attachment: fixed;
+    color: #fff;
+    padding: 20px;
   }
 
   .login-container h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: white;
   }
 
-  .login-container input,
+  .login-container form {
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px #00000033;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .login-container label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    color: #f5f5f5;
+  }
+
+  .login-container input {
+    margin-top: 0.5rem;
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffffffe6;
+    color: #333;
+    outline: none;
+    box-shadow: 0 2px 4px #0000001a;
+  }
+
+  .login-container input:focus {
+    outline: 2px solid #6a11cb;
+  }
+
   .login-container button {
-    font-size: 0.9rem;
+    background-color: #49a09d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 10px;
+    font-size: 20px;
+    cursor: pointer;
   }
-}
 
+  .login-container button:hover {
+    background-color: #6a11cb;
+  }
 
-/* estilo botao sair */
-#logout {
-  margin-left: 10px;
-  background: #ff6b6b;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+  #sair {
+    margin-left: 10px;
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
 
-#logout:hover {
-  background: #ff4a4a;
-}
-
+  #logout:hover {
+    background: #ff4a4a;
+  }
 }
 
 

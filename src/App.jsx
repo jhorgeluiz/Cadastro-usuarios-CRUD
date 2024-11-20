@@ -15,7 +15,7 @@ const Header = ({ onOpenModal, onLogout }) => (
       </button>
     </aside>
   </div>
-);
+)
 
 const Table = ({ data, onEdit, onDelete }) => (
   <div className="divTable">
@@ -57,28 +57,28 @@ const Table = ({ data, onEdit, onDelete }) => (
       </tbody>
     </table>
   </div>
-);
+)
 
 const Modal = ({ isOpen, onClose, onSave, initialData }) => {
-  const [nome, setNome] = useState("");
-  const [senha, setSenha] = useState("");
+  const [nome, setNome] = useState("")
+  const [senha, setSenha] = useState("")
 
   useEffect(() => {
     if (initialData) {
-      setNome(initialData.nome);
-      setSenha(initialData.senha);
+      setNome(initialData.nome)
+      setSenha(initialData.senha)
     } else {
-      setNome("");
-      setSenha("");
+      setNome("")
+      setSenha("")
     }
-  }, [initialData]);
+  }, [initialData])
 
   const handleSave = (e) => {
-    e.preventDefault();
-    onSave({ nome, senha });
+    e.preventDefault()
+    onSave({ nome, senha })
   };
 
-  if (!isOpen) return null;
+  if (!isOpen) return null
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -103,26 +103,26 @@ const Modal = ({ isOpen, onClose, onSave, initialData }) => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const Login = ({ onLogin, onRegister }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
 
   const handleLogin = (e) => {
-    e.preventDefault();
-    const savedUsers = JSON.parse(localStorage.getItem("dbuso")) || [];
+    e.preventDefault()
+    const savedUsers = JSON.parse(localStorage.getItem("dbuso")) || []
     const user = savedUsers.find(
       (u) => u.nome === username && u.senha === password
-    );
+    )
 
     if (user) {
-      onLogin();
+      onLogin()
     } else {
-      alert("Credenciais inválidas!");
+      alert("Credenciais inválidas!")
     }
-  };
+  }
 
   return (
     <div className="login-container">
@@ -151,51 +151,51 @@ const Login = ({ onLogin, onRegister }) => {
       </form>
       
     </div>
-  );
-};
+  )
+}
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [usuarios, setUsuarios] = useState([]);
-  const [isModalOpen, setModalOpen] = useState(false);
-  const [editingIndex, setEditingIndex] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [usuarios, setUsuarios] = useState([])
+  const [isModalOpen, setModalOpen] = useState(false)
+  const [editingIndex, setEditingIndex] = useState(null)
 
   useEffect(() => {
-    const savedData = JSON.parse(localStorage.getItem("dbuso")) || [];
-    setUsuarios(savedData);
-  }, []);
+    const savedData = JSON.parse(localStorage.getItem("dbuso")) || []
+    setUsuarios(savedData)
+  }, [])
 
   useEffect(() => {
-    localStorage.setItem("dbuso", JSON.stringify(usuarios));
-  }, [usuarios]);
+    localStorage.setItem("dbuso", JSON.stringify(usuarios))
+  }, [usuarios])
 
   const handleOpenModal = (index = null) => {
-    setEditingIndex(index);
-    setModalOpen(true);
-  };
+    setEditingIndex(index)
+    setModalOpen(true)
+  }
 
   const handleCloseModal = () => {
-    setEditingIndex(null);
-    setModalOpen(false);
-  };
+    setEditingIndex(null)
+    setModalOpen(false)
+  }
 
   const handleSave = (data) => {
     if (editingIndex !== null) {
-      const updated = [...usuarios];
-      updated[editingIndex] = data;
-      setUsuarios(updated);
+      const updated = [...usuarios]
+      updated[editingIndex] = data
+      setUsuarios(updated)
     } else {
-      setUsuarios([...usuarios, data]);
+      setUsuarios([...usuarios, data])
     }
-    handleCloseModal();
-  };
+    handleCloseModal()
+  }
 
   const handleDelete = (index) => {
-    const updated = usuarios.filter((_, i) => i !== index);
-    setUsuarios(updated);
-  };
+    const updated = usuarios.filter((_, i) => i !== index)
+    setUsuarios(updated)
+  }
 
-  const handleLogout = () => setIsLoggedIn(false);
+  const handleLogout = () => setIsLoggedIn(false)
 
   if (!isLoggedIn) {
     return (
@@ -210,7 +210,7 @@ const App = () => {
           onSave={handleSave}
         />
       </>
-    );
+    )
   }
 
   return (
@@ -228,7 +228,7 @@ const App = () => {
         initialData={editingIndex !== null ? usuarios[editingIndex] : null}
       />
     </div>
-  );
-};
+  )
+}
 
 export default App;
