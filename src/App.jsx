@@ -126,26 +126,19 @@ const Login = ({ onLogin, onRegister }) => {
 
   return (
     <div className="login-container">
-      <h1>Login</h1>
+
+      <h1 className="h1_login">Login</h1>
+
+
       <form onSubmit={handleLogin}>
-        <label>
-          Nome:
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Senha:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
+
+
+        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Nome" required/>
+
+
+
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Senha" required/>
+
         <button type="submit">Entrar</button>
         <button onClick={onRegister}>Cadastrar</button>
       </form>
