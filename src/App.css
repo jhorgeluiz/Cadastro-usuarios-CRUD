@@ -8,20 +8,10 @@
   }
 
   body {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
     background-image: linear-gradient( #49a09d, #5f2c82);
-  }
-
-  button {
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    transition: all 0.3s ease;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
   }
 
   button:hover {
@@ -39,7 +29,7 @@
   }
 
   h1 {
-    color: white;
+    color: #49a09d;
     text-align: center;
   }
 
@@ -50,28 +40,42 @@
     color: white;
   }
 
-  header {
+  .cont_header {
+    padding: 10px;
     font-size: 24px;
     font-weight: 700;
     color: white;
+    background-color: #d1d0d0;
+    border: 1px solid black;
   }
 
   aside {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-between;
     padding-top: 10px;
   }
 
-  #new {
+  #botao_inclui{
     padding: 10px 20px;
-    background-color:  #5f2c82;
+    background-color:  #49a09d;
+    border-style: none;
+    border-radius: 5px;
     color: white;
   }
 
-  .divTable {
-    overflow-x: auto;
-    margin-top: 20px;
+  #botao_sair {
+    margin-left: 10px;
+    background-color: #49a09d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  #logout:hover {
+    background: #ff4a4a;
   }
 
   table {
@@ -82,7 +86,7 @@
   }
 
   thead {
-    background-color: #f8f8f8;
+    background-color: #aaaaaa;
   }
 
   thead th {
@@ -90,7 +94,7 @@
     text-align: left;
     padding: 10px;
     color: #555555;
-    border-bottom: 2px solid #eeeeee;
+    border: 1px solid;
   }
 
   tbody tr {
@@ -105,6 +109,7 @@
     padding: 10px;
     text-align: left;
     color: #333333;
+    border: 1px solid;
   }
 
   .acao {
@@ -114,6 +119,7 @@
 
   tbody td.acao button {
     background: none;
+    border-style: none;
     color: #555;
     font-size: 18px;
     cursor: pointer;
@@ -125,26 +131,21 @@
 
   .modal {
     width: 90%;
-    height: 400px;
+    height: 330px;
     max-width: 500px;
-    background-color:  #5f2c82;
+    background-color:  #0a6363;
     border-radius: 10px;
     padding: 20px;
     position: fixed;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
   }
 
-  .modal label {
-    display: flex;     /* <---- */
-    margin-bottom: 8px;
-    padding: 5px;
-    font-size: 20px;
-    font-weight: 600;
+  .h1_cadastro_editar {
     text-align: center;
-    color: white;
+    margin: 10px;
   }
 
   .modal input {
@@ -155,18 +156,34 @@
     border-radius: 4px;
     font-size: 14px;
   }
-
   .modal input:focus {
     border-color: #4CAF50;
     outline: none;
-    box-shadow: 0 0 5px #4caf504d;
+    box-shadow: 0 0 5px #dcf3f3;
   }
 
-  .modal button {
-    width: 100%;
-    padding: 15px;
+  .cont_botao_salvar {
+    display: flex;
+    justify-content: center;
+  }
+  .botao_salvar {
+    padding: 10px;
     font-size: 20px;
-    background-color: #4CAF50;
+    background-color: #49a09d;
+    border-style: none;
+    color: white;
+    border-radius: 4px;
+  }
+
+  .cont_botao_sair_modal{
+    display: flex;
+    justify-content: end;
+  }
+  .botao_sair_modal {
+    padding: 8px;
+    font-size: 15px;
+    background-color: transparent;
+    border: 1px solid;
     color: white;
     border-radius: 4px;
   }
@@ -175,62 +192,65 @@
     background-color: #45a049;
   }
 
-  .login-container {
+  .cont_form_login {
+    background-color: #ffffff41;
+    border-radius: 15px;
+    width: 800px;
+    height: 400px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 90vh;
-    background-image: linear-gradient( #49a09d, #5f2c82);
-    background-attachment: fixed;
-    color: #fff;
-    padding: 20px;
+    margin: auto;
   }
 
-  .login-container h1 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('assets/back-app.jpg');
+    width: 100vw;
+    height: 100vh;
+    background-position: bottom;
+    background-size: cover;
+  }
+  .h1_login {
+    font-size: 5rem;
     color: white;
+    font-weight: bolder;
+    margin: 15px;
+    position: absolute;
+    top: 48%;
+    left: 30%;
+    transform: translate(-50%, -50% );
   }
 
   .login-container form {
-    background-color: transparent;
+    gap: 10px;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px #00000033;
     width: 100%;
     max-width: 400px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-  }
-
-  .login-container label {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-    color: #f5f5f5;
+    position: absolute;
+    top: 48%;
+    left: 63%;
+    transform: translate(-50%, -50% );
   }
 
   .login-container input {
-    margin-top: 0.5rem;
+    margin-top: 2rem;
     padding: 15px;
     font-size: 20px;
     border: none;
     border-radius: 5px;
-    background-color: #ffffffe6;
+    background-color: #ffffff;
     color: #333;
     outline: none;
     box-shadow: 0 2px 4px #0000001a;
   }
 
   .login-container input:focus {
-    outline: 2px solid #6a11cb;
+    outline: 2px solid #49a09d;
   }
 
   .login-container button {
@@ -245,22 +265,7 @@
   }
 
   .login-container button:hover {
-    background-color: #6a11cb;
-  }
-
-  #sair {
-    margin-left: 10px;
-    background-color: #ff6b6b;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-
-  #logout:hover {
-    background: #ff4a4a;
+    background-color: #5dcac7;
   }
 
 }
@@ -277,14 +282,8 @@
   body {
     background-image: linear-gradient( #49a09d, #5f2c82);
     background-attachment: fixed;
-  }
-
-  button {
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
   }
 
   button:hover {
@@ -302,8 +301,8 @@
   }
 
   h1 {
-    color: white;
-
+    color: #49a09d;
+    text-align: center;
   }
 
   .container > .modal .m-nome {
@@ -313,28 +312,42 @@
     color: white;
   }
 
-  header {
+  .cont_header {
+    padding: 10px;
     font-size: 24px;
     font-weight: 700;
     color: white;
+    background-color: #d1d0d0;
+    border: 1px solid black;
   }
 
   aside {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-between;
     padding-top: 10px;
   }
 
-  #new {
+  #botao_inclui{
     padding: 10px 20px;
-    background-color:  #5f2c82;
+    background-color:  #49a09d;
+    border-style: none;
+    border-radius: 5px;
     color: white;
   }
 
-  .divTable {
-    overflow-x: auto;
-    margin-top: 20px;
+  #botao_sair {
+    margin-left: 10px;
+    background-color: #49a09d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  #logout:hover {
+    background: #ff4a4a;
   }
 
   table {
@@ -345,7 +358,7 @@
   }
 
   thead {
-    background-color: #f8f8f8;
+    background-color: #aaaaaa;
   }
 
   thead th {
@@ -353,7 +366,7 @@
     text-align: left;
     padding: 10px;
     color: #555555;
-    border-bottom: 2px solid #eeeeee;
+    border: 1px solid;
   }
 
   tbody tr {
@@ -368,6 +381,7 @@
     padding: 10px;
     text-align: left;
     color: #333333;
+    border: 1px solid;
   }
 
   .acao {
@@ -377,6 +391,7 @@
 
   tbody td.acao button {
     background: none;
+    border-style: none;
     color: #555;
     font-size: 18px;
     cursor: pointer;
@@ -388,26 +403,21 @@
 
   .modal {
     width: 90%;
-    height: 400px;
+    height: 330px;
     max-width: 500px;
-    background-color:  #5f2c82;
+    background-color:  #0a6363;
     border-radius: 10px;
     padding: 20px;
     position: fixed;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
   }
 
-  .modal label {
-    display: flex;     /* <---- */
-    margin-bottom: 8px;
-    padding: 5px;
-    font-size: 20px;
-    font-weight: 600;
+  .h1_cadastro_editar {
     text-align: center;
-    color: white;
+    margin: 10px;
   }
 
   .modal input {
@@ -418,18 +428,34 @@
     border-radius: 4px;
     font-size: 14px;
   }
-
   .modal input:focus {
     border-color: #4CAF50;
     outline: none;
-    box-shadow: 0 0 5px #4caf504d;
+    box-shadow: 0 0 5px #dcf3f3;
   }
 
-  .modal button {
-    width: 100%;
-    padding: 15px;
+  .cont_botao_salvar {
+    display: flex;
+    justify-content: center;
+  }
+  .botao_salvar {
+    padding: 10px;
     font-size: 20px;
-    background-color: #4CAF50;
+    background-color: #49a09d;
+    border-style: none;
+    color: white;
+    border-radius: 4px;
+  }
+
+  .cont_botao_sair_modal{
+    display: flex;
+    justify-content: end;
+  }
+  .botao_sair_modal {
+    padding: 8px;
+    font-size: 15px;
+    background-color: transparent;
+    border: 1px solid;
     color: white;
     border-radius: 4px;
   }
@@ -438,22 +464,34 @@
     background-color: #45a049;
   }
 
+  .cont_form_login {
+    background-color: #ffffff41;
+    border-radius: 15px;
+    width: 800px;
+    height: 400px;
+    display: flex;
+    margin: auto;
+  }
+
   .login-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     background-image: url('assets/back-app.jpg');
     width: 100vw;
     height: 100vh;
     background-position: bottom;
     background-size: cover;
-    
-
   }
   .h1_login {
-    font-size: 3rem;
+    font-size: 5rem;
     color: white;
     font-weight: bolder;
-    margin: 10px;
+    margin: 15px;
+    position: absolute;
+    top: 48%;
+    left: 30%;
+    transform: translate(-50%, -50% );
   }
 
   .login-container form {
@@ -465,17 +503,10 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-
-  }
-
-  .login-container label {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-    color: white;
+    position: absolute;
+    top: 48%;
+    left: 63%;
+    transform: translate(-50%, -50% );
   }
 
   .login-container input {
@@ -491,7 +522,7 @@
   }
 
   .login-container input:focus {
-    outline: 2px solid #6a11cb;
+    outline: 2px solid #49a09d;
   }
 
   .login-container button {
@@ -506,23 +537,9 @@
   }
 
   .login-container button:hover {
-    background-color: #6a11cb;
+    background-color: #5dcac7;
   }
 
-  #sair {
-    margin-left: 10px;
-    background-color: #ff6b6b;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-
-  #logout:hover {
-    background: #ff4a4a;
-  }
 }
 
 

@@ -4,21 +4,17 @@ import { MdDeleteForever } from "react-icons/md";
 import "./App.css";
 
 const Header = ({ onOpenModal, onLogout }) => (
-  <div className="header">
+  <div className="cont_header">
     <h1>Lista de Usuários</h1>
     <aside>
-      <button id="new" onClick={onOpenModal}>
-        Incluir Usuário
-      </button>
-      <button id="sair" onClick={onLogout}>
-        Sair
-      </button>
+      <button id="botao_inclui" onClick={onOpenModal}>Incluir Usuário</button>
+      <button id="botao_sair" onClick={onLogout}>Sair</button>
     </aside>
   </div>
 )
 
 const Table = ({ data, onEdit, onDelete }) => (
-  <div className="divTable">
+  <div className="cont_Table">
     <table>
       <thead>
         <tr>
@@ -35,10 +31,7 @@ const Table = ({ data, onEdit, onDelete }) => (
             <td>{item.nome}</td>
             <td>{"****"}</td>
             <td className="acao">
-              <button
-                className="button"
-                onClick={() => alert(`Nome: ${item.nome}\nSenha: ${item.senha}`)}
-              >
+              <button className="button" onClick={() => alert(`Nome: ${item.nome}\nSenha: ${item.senha}`)}>
                 <FaListUl />
               </button>
             </td>
@@ -48,7 +41,7 @@ const Table = ({ data, onEdit, onDelete }) => (
               </button>
             </td>
             <td className="acao">
-              <button className="button" onClick={() => onDelete(index)}>
+              <button className="button" onClick={() => onDelete(index)} >
                 <MdDeleteForever />
               </button>
             </td>
@@ -57,6 +50,7 @@ const Table = ({ data, onEdit, onDelete }) => (
       </tbody>
     </table>
   </div>
+
 )
 
 const Modal = ({ isOpen, onClose, onSave, initialData }) => {
@@ -82,24 +76,18 @@ const Modal = ({ isOpen, onClose, onSave, initialData }) => {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
+
       <div className="modal" onClick={(e) => e.stopPropagation()}>
-        <h1>{initialData ? "Editar Usuário" : "Cadastrar Usuário"} </h1>
+        <div className="cont_botao_sair_modal">
+          <button className="botao_sair_modal" onClick={onClose}>X</button>
+        </div>
+        <h1 className="h1_cadastro_editar">{initialData ? "Editar Usuário" : "Cadastrar Usuário"} </h1>
+
         <form onSubmit={handleSave}>
-          <label>Nome:</label>
-          <input
-            type="text"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
-            required
-          />
-          <label>Senha:</label>
-          <input
-            type="password"
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
-            required
-          />
-          <button type="submit">Salvar</button>
+          <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Nome" required />
+          <input type="password" value={senha} onChange={(e) => setSenha(e.target.value)} placeholder="Senha" required />
+
+          <div className="cont_botao_salvar"><button className="botao_salvar" type="submit">Salvar</button></div>
         </form>
       </div>
     </div>
@@ -125,25 +113,19 @@ const Login = ({ onLogin, onRegister }) => {
   }
 
   return (
-    <div className="login-container">
+    <main className="login-container">
 
-      <h1 className="h1_login">Login</h1>
-
-
-      <form onSubmit={handleLogin}>
-
-
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Nome" required/>
-
-
-
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Senha" required/>
-
-        <button type="submit">Entrar</button>
-        <button onClick={onRegister}>Cadastrar</button>
-      </form>
+      <div className="cont_form_login">
+        <h1 className="h1_login">Login</h1>
+        <form onSubmit={handleLogin}>
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Nome" required/>
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Senha" required/>
+          <button type="submit">Entrar</button>
+          <button onClick={onRegister}>Cadastrar</button>
+        </form>
+      </div>
       
-    </div>
+    </main>
   )
 }
 
